@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.1dcabaf5.css",
-    "main.js": "/static/js/main.ff5aa05c.js",
-    "static/js/787.7a668eb8.chunk.js": "/static/js/787.7a668eb8.chunk.js",
-    "static/media/Rubik80sFade-Regular.ttf": "/static/media/Rubik80sFade-Regular.ac16096e6cef03e80992.ttf",
-    "static/media/logo.svg": "/static/media/logo.245f0a70165a964d4648.svg",
-    "index.html": "/index.html",
-    "main.1dcabaf5.css.map": "/static/css/main.1dcabaf5.css.map",
-    "main.ff5aa05c.js.map": "/static/js/main.ff5aa05c.js.map",
-    "787.7a668eb8.chunk.js.map": "/static/js/787.7a668eb8.chunk.js.map"
+    "main.css": "/RustSite/static/css/main.b2b95fd0.css",
+    "main.js": "/RustSite/static/js/main.3c9499ee.js",
+    "static/js/787.7a668eb8.chunk.js": "/RustSite/static/js/787.7a668eb8.chunk.js",
+    "static/media/Rubik80sFade-Regular.ttf": "/RustSite/static/media/Rubik80sFade-Regular.ac16096e6cef03e80992.ttf",
+    "static/media/logo.svg": "/RustSite/static/media/logo.245f0a70165a964d4648.svg",
+    "index.html": "/RustSite/index.html",
+    "main.b2b95fd0.css.map": "/RustSite/static/css/main.b2b95fd0.css.map",
+    "main.3c9499ee.js.map": "/RustSite/static/js/main.3c9499ee.js.map",
+    "787.7a668eb8.chunk.js.map": "/RustSite/static/js/787.7a668eb8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1dcabaf5.css",
-    "static/js/main.ff5aa05c.js"
+    "static/css/main.b2b95fd0.css",
+    "static/js/main.3c9499ee.js"
   ]
 }
