@@ -18,4 +18,9 @@ body{
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(./images/background.jpg) repeat top left;
+  background-size: 100vw 100vh;
+  background-color: rgb(204, 204, 204);
+  z-index: -2;
+  color:rgb(221, 221, 221);
 }
