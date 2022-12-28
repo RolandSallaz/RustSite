@@ -47,7 +47,8 @@ $HeaderBorder:0  0 $borderAngle $borderAngle;
   // Snow end
 
 .header__text{
-    margin:0 0 10px 0;
+    margin:0 0 0 10px;
+    align-self: center;
     font-family: 'lato', sans-serif;
     font-size: 30px;
     font-weight: 600;
@@ -60,8 +61,9 @@ $HeaderBorder:0  0 $borderAngle $borderAngle;
 }
 
 .logo{
-    width: 91px;
-    height: 91px;
+    width: 100px;
+    height: 100px;
+    margin:0 0 0 7px;
     background: url(../images/logo.svg) no-repeat center;
     background-size: 100px 100px;
     animation: logoRotate 5s linear infinite;
