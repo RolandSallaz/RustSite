@@ -1,0 +1,57 @@
+$mainColor: rgb(34, 34, 34);
+$backgroundColor: rgb(165, 55, 55);
+
+.header{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: $backgroundColor;
+    box-shadow: 0 2px 5px rgb(51, 51, 51);
+    z-index: 1;
+}
+
+.header__text{
+    margin:0;
+    font-family: 'lato', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    text-shadow:0 2px 5px black;
+}
+
+.header__auth-state{
+    margin:0 200px 5px auto;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.main{
+    background-color: $mainColor;
+    width: calc(100vw - 20%);
+    display: flex;
+    justify-content: center;
+    flex-basis: 100vh;
+}
+
+.main__login-button{
+    width: 250px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.footer{
+    background-color:$backgroundColor;
+    height: 50px;
+    width: 100vw;
+    display: flex;
+}
+
+.footer__copyright{
+    margin:auto auto auto 30px;
+}
