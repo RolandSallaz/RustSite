@@ -1,11 +1,12 @@
-import React from 'react'
-import logo from '../images/logo.png'
+import {useState,useEffect} from 'react'
 
 function App() {
+
+
+
   return (
     <>
       <header className="header">
-
         <div className="logo" />
         <h1 className="header__text">KAKAMBE Rust server</h1>
         {/* auth state */}

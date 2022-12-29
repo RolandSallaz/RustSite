@@ -1,6 +1,6 @@
 $mainColor: rgb(34, 34, 34);
 $backgroundColor: #e74e49;
-$topDownWidth: 90vw;
+$topDownWidth: 97vw;
 $gradient: linear-gradient(
   90deg,
   rgb(235, 67, 67) 18%,
@@ -74,7 +74,7 @@ $HeaderBorder: 0 0 $borderAngle $borderAngle;
 }
 
 .main {
-  width: calc(100vw - 20%);
+  width: calc(100vw - 12%);
   display: flex;
   justify-content: center;
   flex-basis: 100vh;
