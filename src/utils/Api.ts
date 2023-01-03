@@ -1,3 +1,5 @@
+import { IUser } from "./Interfaces"
+
 const { API_URL = 'http://localhost:8000' } = process.env
 
 type TSettings = {

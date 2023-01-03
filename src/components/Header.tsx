@@ -17,7 +17,7 @@ export default function Header<FC>({ user: { photos, name, balance } }: props) {
         </div>
         <div
           className="profile__image"
-          style={{ backgroundImage: `url(${photos[1].value})` }}
+          style={{ backgroundImage: `url(${photos[1]?.value})` }}
         />
       </div>
     </header>
