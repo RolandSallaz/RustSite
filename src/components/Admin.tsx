@@ -1,29 +1,21 @@
-import { FC, useState } from 'react'
+import {FC, useState} from 'react'
 
 interface ITestProps {
-  title?: string
+    title?: string
 }
 
-export const Admin: FC<ITestProps> = ({ title }) => {
-  const [isMonitoringEnabled, setIsMonitoringEnabled] = useState<boolean>(false)
+export const Admin: FC<ITestProps> = ({title}) => {
+    const [isMonitoringEnabled, setIsMonitoringEnabled] = useState<boolean>(false)
 
-  return (
-    <>
-      <h2>Admin panel</h2>
-      <div className="settings">
-        <label>
-          Включить мониторинг
-          <input type="checkbox" />
-        </label>
-        <label>
-          Ip сервера
-          <input />
-        </label>
-        <label>
-          Порт
-          <input />
-        </label>
-      </div>
-    </>
-  )
+    return (
+        <main className="main">
+            <h2>Admin panel</h2>
+            <div className="settings">
+                <div className='settings__container'>
+                    <p>Подключенных серверов: 0</p>
+                    <button>Добавить сервер</button>
+                </div>
+            </div>
+        </main>
+    )
 }

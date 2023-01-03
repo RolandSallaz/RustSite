@@ -7,6 +7,6 @@ interface IRouteProps {
 }
 
 export const ProtectedRoute: FC<IRouteProps> = (props) => {
-  const loggedIn = useContext(LoggedInContext)
+  const loggedIn = true
   return loggedIn ? <>{props.children}</> : <Navigate to="/auth" />
 }

@@ -16,11 +16,11 @@ import Main from "./Main";
 function App() {
     const dispatch = useDispatch()
     const [currentUser, setCurrentUser] = useState<IUser>({
-        balance:0,
-        group:'user',
-        name:'',
-        photos:[],
-        steamId:0
+        balance: 0,
+        group: 'user',
+        name: '',
+        photos: [],
+        steamId: 0
     })
     const {actions} = userSlice
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
@@ -29,7 +29,6 @@ function App() {
     }
     useEffect(() => {
         api.getCurrentUser().then((res) => {
-            console.log(res)
             setIsLoggedIn(true);
             setCurrentUser(res as IUser);
         })
@@ -45,18 +44,16 @@ function App() {
                     }
                 />
                 <Route path='/'
-                element={
-                    <ProtectedRoute>
-                        <Main/>
-                    </ProtectedRoute>
-                }/>
+                       element={
+                           <ProtectedRoute>
+                               <Main/>
+                           </ProtectedRoute>
+                       }/>
                 <Route
                     path="/admin"
                     element={
                         <ProtectedRoute>
-                            <main className="main">
-                                <Admin/>
-                            </main>
+                            <Admin/>
                         </ProtectedRoute>
                     }
                 />

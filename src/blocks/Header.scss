@@ -10,6 +10,18 @@
   z-index: 1;
   border-radius: $HeaderBorder;
 }
+.logo{
+  background: url(../images/logo.svg) no-repeat center;
+  animation: logoRotate 5s linear infinite;
+}
+.logo__place_header {
+  width: 100px;
+  height: 100px;
+  margin: 0 0 0 7px;
+  background-size: 100px 100px;
+  cursor: pointer;
+}
+
 //Snow
 .header::before {
   content: '';
@@ -44,7 +56,7 @@
   font-size: 30px;
   font-weight: 600;
   text-shadow: 0 2px 5px black;
-  z-index: -3;
+  cursor: pointer;
 }
 
 .profile {
