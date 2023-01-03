@@ -1,10 +1,14 @@
-@import url(./blocks/App.scss);
-@import url(./blocks/Admin.scss);
-@import url(./vendor/fonts.css);
+@import './utils/variables.scss';
+@import './vendor/fonts.css';
+@import './blocks/App.scss';
+@import './blocks/Header.scss';
+@import './blocks/Admin.scss';
+
+
 
 $fontFamily: 'roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-sans-serif; 
+  'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 
 body {
   margin: 0;
@@ -28,6 +32,9 @@ body {
   color: rgb(221, 221, 221);
 }
 
-button{
+button {
   font-family: $fontFamily;
+}
+p{
+  text-shadow: $textShadow;
 }

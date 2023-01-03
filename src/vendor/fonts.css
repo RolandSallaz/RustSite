@@ -2,8 +2,3 @@
     font-family: 'lato';
     src: url(./fonts/Rubik80sFade-Regular.ttf) format('truetype');
 }
-
-@font-face {
-    font-family: 'roboto';
-    src: url(./fonts/roboto/Roboto-Regular.ttf) format('truetype');
-}
