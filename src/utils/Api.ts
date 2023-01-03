@@ -1,4 +1,5 @@
 import { IUser } from "./Interfaces"
+import axios from "../axios";
 
 const { API_URL = 'http://localhost:8000' } = process.env
 

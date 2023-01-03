@@ -1,48 +1,26 @@
-import {useState, useEffect} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import {shallowEqual} from 'react-redux/es/exports'
-import {redirect, Route, Routes} from 'react-router-dom'
-import {LoggedInContext} from '../contexts/loggedInContext'
-import {userSlice} from '../services/slices/userSlice'
-import {api} from '../utils/Api'
-import {IUser} from '../utils/Interfaces'
+import {useEffect} from 'react'
+import {Route, Routes} from 'react-router-dom'
 
-import {Admin} from './Admin'
+import Admin from './Admin'
 import Header from './Header'
 import {ProtectedRoute} from './ProtectedRoute'
 import Auth from "./Auth";
 import Main from "./Main";
+import {useAppDispatch} from "../hooks/redux";
+import {fetchUser} from "../services/actions/user";
 
 function App() {
-    const dispatch = useDispatch()
-    const [currentUser, setCurrentUser] = useState<IUser>({
-        balance: 0,
-        group: 'user',
-        name: '',
-        photos: [],
-        steamId: 0
-    })
-    const {actions} = userSlice
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+    const dispatch = useAppDispatch();
     const handleLogin = () => {
         window.location.replace(`http://localhost:8000/auth/steam`)
     }
     useEffect(() => {
-        api.getCurrentUser().then((res) => {
-            setIsLoggedIn(true);
-            setCurrentUser(res as IUser);
-        })
-    }, [])
+        dispatch(fetchUser())
+    }, [dispatch])
     return (
-        <LoggedInContext.Provider value={isLoggedIn}>
-            <Header user={currentUser as IUser}/>
+        <>
+            <Header/>
             <Routes>
-                <Route
-                    path="/auth"
-                    element={
-                        <Auth onLogin={handleLogin}/>
-                    }
-                />
                 <Route path='/'
                        element={
                            <ProtectedRoute>
@@ -52,16 +30,22 @@ function App() {
                 <Route
                     path="/admin"
                     element={
-                        <ProtectedRoute>
+                        <ProtectedRoute adminRequire>
                             <Admin/>
                         </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/auth"
+                    element={
+                        <Auth onLogin={handleLogin}/>
                     }
                 />
             </Routes>
             <footer className="footer">
                 <p className="footer__copyright">&#169; KakahaGames 2023</p>
             </footer>
-        </LoggedInContext.Provider>
+        </>
     )
 }
 

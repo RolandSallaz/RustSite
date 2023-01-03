@@ -7,3 +7,15 @@
 .settings__container{
     margin:0 0 0 20px;
 }
+.settings__add-button{
+    min-height: 30px;
+    background-color: #737272;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.settings__add-button:hover{
+    opacity: 0.8;
+}

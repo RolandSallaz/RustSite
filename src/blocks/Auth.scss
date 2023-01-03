@@ -1,0 +1,33 @@
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+    background-color: #161d2e;
+    color: #b8b6b4;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+  }
+
+  .login-button:hover{
+    background-color: #192236;
+    box-shadow: 1px 1px 3px rgb(35, 6, 83);
+  }
+  
+  .login-button__text{
+    margin: 0 12px 0 25px;
+    font-size: 15px;
+  }
+  
+  .loggin-button__logo {
+    justify-self: flex-end;
+    width: 30px;
+    height: 30px;
+    margin:0;
+    background: url(../images/steamLogo.svg) no-repeat left;
+    background-size: 100px 100px;
+  }

@@ -10,10 +10,16 @@
   z-index: 1;
   border-radius: $HeaderBorder;
 }
-.logo{
+
+.header__container {
+  display: flex;
+}
+
+.logo {
   background: url(../images/logo.svg) no-repeat center;
   animation: logoRotate 5s linear infinite;
 }
+
 .logo__place_header {
   width: 100px;
   height: 100px;
@@ -48,6 +54,7 @@
   background-position: 0px 0px;
   animation: animatedBackground 15s linear infinite;
 }
+
 // Snow end
 
 .header__text {
@@ -61,13 +68,18 @@
 
 .profile {
   padding-top: 10px;
-  background-color: rgb(206, 80, 85);
-  border-radius: 20% 20% 0 0;
+  background-color: $profileBackgroundColor;
+  border-radius: $borderAngle $borderAngle 0 0;
   height: 60px;
   margin: auto 59px 0 auto;
   display: flex;
+  flex-direction: column;
+  box-shadow: $insideBoxShadow;
+}
+
+.profile__container {
+  display: flex;
   justify-content: space-between;
-  box-shadow: inset 0px 0px 3px black;
 }
 
 .profile__image {
@@ -76,12 +88,15 @@
   height: 50px;
   background-size: 50px 50px;
   border-radius: 50%;
+  box-shadow: 2px 2px 3px #710000;
 }
+
 .profile__info {
-  margin: 0px 10px;
+  margin: 0px 10px 0 17px;
   display: flex;
   flex-direction: column;
 }
+
 .profile__name {
   margin: 0;
   font-size: 20px;
@@ -89,7 +104,42 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .profile__balance {
   margin: 0;
   align-self: flex-end;
+}
+
+.profile__navigation {
+  margin: 0;
+}
+.profile__navigation_hidden{
+  display: none;
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.navagation__list-element {
+  margin: 0;
+  padding-right: 35px;
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: $profileBackgroundColor;
+  box-shadow: $insideBoxShadow;
+  list-style: none;
+}
+
+.navagation__list-element:first-of-type {
+  margin-top: 10px;
+}
+
+.navagation__list-element:last-of-type {
+  border-radius: 0 0 $borderAngle $borderAngle;
 }

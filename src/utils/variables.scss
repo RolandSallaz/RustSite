@@ -2,12 +2,14 @@ $mainColor: rgb(34, 34, 34);
 $backgroundColor: #e74e49;
 $topDownWidth: 97vw;
 $gradient: linear-gradient(
-  90deg,
-  rgb(235, 67, 67) 18%,
-  rgba(250, 97, 97, 1) 71%,
-  rgba(214, 117, 82, 1) 100%
+                90deg,
+                rgb(235, 67, 67) 18%,
+                rgba(250, 97, 97, 1) 71%,
+                rgba(214, 117, 82, 1) 100%
 );
 $borderAngle: 30px;
 $HeaderBorder: 0 0 $borderAngle $borderAngle;
-$textShadow:0 2px 5px black;
+$textShadow: 0 2px 5px black;
+$profileBackgroundColor: rgb(206, 80, 85);
+$insideBoxShadow: inset 0px 0px 3px black;
 

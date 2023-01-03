@@ -3,6 +3,8 @@
 @import './blocks/App.scss';
 @import './blocks/Header.scss';
 @import './blocks/Admin.scss';
+@import './blocks/Auth.scss';
+@import './blocks/FailPage.scss';
 
 
 
@@ -38,3 +40,13 @@ button {
 p{
   text-shadow: $textShadow;
 }
+a {
+  color: white;
+  text-decoration: none;
+  padding: 0;
+  text-shadow: $textShadow;
+}
+a:hover{
+  opacity: 0.5;
+}
+

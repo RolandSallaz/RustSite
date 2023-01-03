@@ -1,0 +1,21 @@
+.failpage{
+  background-color: black;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.failpage__text{
+  margin:0;
+  font-size:35px;
+  font-weight: bold;
+}
+.failpage__link{
+  margin:0;
+  margin-top: 30px;
+  font-size: 20px;
+}

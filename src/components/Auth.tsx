@@ -4,7 +4,7 @@ interface props {
     onLogin: () => void
 }
 
-export default function Auth<FC>({onLogin}: props) {
+export default function Auth({onLogin}: props) {
     function handleLoginClick() {
         onLogin();
     }
