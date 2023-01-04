@@ -5,11 +5,12 @@ import {popupSlice} from "../../services/slices/popupSlice";
 
 interface IInputData {
     ip: string,
-    port: string
+    port: string,
+    password: string,
 }
 
 const AddServerPopup = () => {
-    const [inputData, setInputData] = useState<IInputData>({ip: '', port: '28016'});
+    const [inputData, setInputData] = useState<IInputData>({ip: '', port: '28016', password: ''});
     const {isAddServerPopupOpened} = useAppSelector(state => state.popups)
     const dispatch = useAppDispatch();
 
@@ -34,6 +35,11 @@ const AddServerPopup = () => {
                    placeholder='port'
                    name='port'
                    value={inputData.port}
+                   onChange={handleChange}/>
+            <input className='popup__input'
+                   placeholder='rcon password'
+                   name='password'
+                   value={inputData.password}
                    onChange={handleChange}/>
         </Popup>
     );
