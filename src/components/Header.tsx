@@ -39,8 +39,8 @@ export default function Header() {
                     <nav className={`profile__navigation ${!showNavigation && 'profile__navigation_hidden'}`}>
                         <ul className='navigation__list'>
                             {group === groups.ADMIN && (
-                                <li className='navagation__list-element'><Link to='/admin'>Админ панель</Link></li>)}
-                            <li className='navagation__list-element'><Link to='/'>Выход</Link></li>
+                                <li className='navagation__list-element'><Link className='navigation__link' to='/admin'>Админ панель</Link></li>)}
+                            <li className='navagation__list-element'><Link className='navigation__link' to='/'>Выход</Link></li>
                         </ul>
                     </nav>
                 </div>

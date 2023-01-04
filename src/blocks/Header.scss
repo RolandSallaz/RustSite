@@ -124,16 +124,26 @@
   margin: 0;
 }
 
+.navigation__link{
+  margin:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 .navagation__list-element {
   margin: 0;
-  padding-right: 35px;
   height: 40px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   background-color: $profileBackgroundColor;
   box-shadow: $insideBoxShadow;
   list-style: none;
+}
+.navagation__list-element:hover{
+  scale: 1.03;
 }
 
 .navagation__list-element:first-of-type {

@@ -3,15 +3,12 @@ import {AppDispatch} from "../store";
 import {userSlice} from "../slices/userSlice";
 
 export const fetchUser = () => {
-    return async (dispatch: AppDispatch) => {
-        try {
+    return (dispatch: AppDispatch) => {
             dispatch(userSlice.actions.fetching())
-            const response = await axios.get('/users/me', {withCredentials: true})
-            dispatch(userSlice.actions.login(
-                response.data
-            ))
-        } catch (err) {
-            dispatch(userSlice.actions.fetchingError(err as Error))
-        }
+            axios.get('/users/me', {withCredentials: true})
+            .then((res)=>{
+                dispatch(userSlice.actions.login(res.data))
+            })
+            .catch((err)=> dispatch(userSlice.actions.fetchingError(err as Error)))
+        } 
     }
-}
