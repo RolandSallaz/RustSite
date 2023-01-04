@@ -10,7 +10,7 @@
     cursor: pointer;
     background-color: #161d2e;
     color: #b8b6b4;
-    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    box-shadow: $boxshadow;
   }
 
   .login-button:hover{

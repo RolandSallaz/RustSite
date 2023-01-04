@@ -1,7 +1,7 @@
 .header {
   position: relative;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
   width: $topDownWidth;
   background: rgb(255, 26, 32);
@@ -129,7 +129,7 @@
   padding-right: 35px;
   height: 40px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   background-color: $profileBackgroundColor;
   box-shadow: $insideBoxShadow;

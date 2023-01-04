@@ -5,12 +5,11 @@
 @import './blocks/Admin.scss';
 @import './blocks/Auth.scss';
 @import './blocks/FailPage.scss';
-
-
+@import './blocks/Popup.scss';
 
 $fontFamily: 'roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-  'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
 
 body {
   margin: 0;
@@ -31,22 +30,28 @@ body {
   background-size: cover;
   background-color: rgb(22 17 35);
   z-index: -2;
-  color: rgb(221, 221, 221);
+  color: $textColor;
 }
 
 button {
   font-family: $fontFamily;
+  color: $textColor;
+  text-shadow: $textShadow;
+  box-shadow: $boxshadow;
 }
-p{
+
+p {
   text-shadow: $textShadow;
 }
+
 a {
   color: white;
   text-decoration: none;
   padding: 0;
   text-shadow: $textShadow;
 }
-a:hover{
+
+a:hover {
   opacity: 0.5;
 }
 

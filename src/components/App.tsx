@@ -1,16 +1,17 @@
 import {useEffect} from 'react'
-import {Route, Routes} from 'react-router-dom'
+import {Navigate, Route, Routes} from 'react-router-dom'
 
 import Admin from './Admin'
 import Header from './Header'
 import {ProtectedRoute} from './ProtectedRoute'
 import Auth from "./Auth";
 import Main from "./Main";
-import {useAppDispatch} from "../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {fetchUser} from "../services/actions/user";
 
 function App() {
     const dispatch = useAppDispatch();
+    const {loggedIn} = useAppSelector((state) => state.user)
     const handleLogin = () => {
         window.location.replace(`http://localhost:8000/auth/steam`)
     }
@@ -37,9 +38,7 @@ function App() {
                 />
                 <Route
                     path="/auth"
-                    element={
-                        <Auth onLogin={handleLogin}/>
-                    }
+                    element={loggedIn ? <Navigate to='/'/> : (<Auth onLogin={handleLogin}/>)}
                 />
             </Routes>
             <footer className="footer">
