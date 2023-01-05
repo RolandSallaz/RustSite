@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import {useCallback, useEffect, useMemo} from 'react'
 import {Navigate, Route, Routes} from 'react-router-dom'
 
 import Admin from './Admin'
@@ -11,13 +11,15 @@ import {fetchUser} from "../services/actions/user";
 
 function App() {
     const dispatch = useAppDispatch();
-    const {loggedIn} = useAppSelector((state) => state.user)
-    const handleLogin = () => {
+    const {loggedIn, user} = useAppSelector((state) => state.user)
+    const handleLoginClick = () => {
         window.location.replace(`http://localhost:8000/auth/steam`)
     }
+
     useEffect(() => {
         dispatch(fetchUser())
-    }, [dispatch])
+    }, [])
+
     return (
         <>
             <Header/>
@@ -38,7 +40,7 @@ function App() {
                 />
                 <Route
                     path="/auth"
-                    element={loggedIn ? <Navigate to='/'/> : (<Auth onLogin={handleLogin}/>)}
+                    element={loggedIn ? <Navigate to='/'/> : (<Auth onLogin={handleLoginClick}/>)}
                 />
             </Routes>
             <footer className="footer">

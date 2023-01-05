@@ -14,6 +14,9 @@
 .header__container {
   display: flex;
 }
+.header__container:hover{
+  opacity: 1;
+}
 
 .logo {
   background: url(../images/logo.svg) no-repeat center;
@@ -62,7 +65,6 @@
   align-self: center;
   font-size: 30px;
   font-weight: 600;
-  text-shadow: 0 2px 5px black;
   cursor: pointer;
 }
 

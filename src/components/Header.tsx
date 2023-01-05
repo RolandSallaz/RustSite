@@ -1,16 +1,11 @@
 import React, {useState} from 'react'
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useAppSelector} from "../hooks/redux";
 import {groups} from "../utils/Interfaces";
 
 export default function Header() {
-    const navigate = useNavigate()
     const {loggedIn, user: {photos, balance, name, group}} = useAppSelector(state => state.user)
     const [showNavigation, setShowNagivation] = useState<boolean>(false);
-
-    function handleRedirectToMain() {
-        navigate('/');
-    }
 
     function toggleShowNavigation(state: boolean) {
         setShowNagivation(state);
@@ -18,10 +13,10 @@ export default function Header() {
 
     return (
         <header className="header">
-            <div className='header__container'>
-                <div className="logo logo__place_header" onClick={handleRedirectToMain}/>
-                <h1 className="header__text" onClick={handleRedirectToMain}>KAKAMBE Rust server</h1>
-            </div>
+            <Link className='header__container' to='/'>
+                <div className="logo logo__place_header"/>
+                <h1 className="header__text">KAKAMBE Rust server</h1>
+            </Link>
 
             {loggedIn && (
                 <div className="profile" onMouseEnter={() => toggleShowNavigation(true)}
@@ -39,8 +34,10 @@ export default function Header() {
                     <nav className={`profile__navigation ${!showNavigation && 'profile__navigation_hidden'}`}>
                         <ul className='navigation__list'>
                             {group === groups.ADMIN && (
-                                <li className='navagation__list-element'><Link className='navigation__link' to='/admin'>Админ панель</Link></li>)}
-                            <li className='navagation__list-element'><Link className='navigation__link' to='/'>Выход</Link></li>
+                                <li className='navagation__list-element'><Link className='navigation__link' to='/admin'>Админ
+                                    панель</Link></li>)}
+                            <li className='navagation__list-element'><Link className='navigation__link'
+                                                                           to='/'>Выход</Link></li>
                         </ul>
                     </nav>
                 </div>

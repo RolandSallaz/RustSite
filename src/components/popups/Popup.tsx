@@ -26,7 +26,7 @@ export default function Popup({children, title, buttonText, adminRequire, isOpen
                 <h2 className='popup__header'>{title}</h2>
                 {children}
                 <button className='popup__submit-button'
-                        disabled={!loggedIn || (adminRequire && group !== groups.ADMIN)}
+                        disabled={!loggedIn || (adminRequire && group !== groups.ADMIN) || true}
                         type="submit">{buttonText || 'Сохранить'}</button>
             </form>
         </div>

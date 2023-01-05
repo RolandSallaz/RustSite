@@ -40,12 +40,21 @@
 }
 
 .popup__submit-button {
+  cursor: pointer;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 150px;
   height: 40px;
   border: none;
   background-color: #710000;
+}
+
+.popup__submit-button:disabled{
+  cursor: default;
+  text-shadow: none;
+  cursor: default;
+  opacity: 0.7;
+  background-color: #857d7d;
 }
 
 .popup__input {
