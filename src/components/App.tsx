@@ -7,7 +7,7 @@ import {ProtectedRoute} from './ProtectedRoute'
 import Auth from "./Auth";
 import Main from "./Main";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {fetchUser} from "../services/actions/user";
+import {fetchUser} from "../services/actions/api";
 
 function App() {
     const dispatch = useAppDispatch();

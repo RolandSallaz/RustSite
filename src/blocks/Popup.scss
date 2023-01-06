@@ -64,7 +64,33 @@
   border: none;
   box-shadow: $boxshadow;
   margin: 0;
-  margin-top: 20px;
+}
+
+.input-list{
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+}
+.input-list__item{
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.input-list span{
+  margin:5px 0;
+  font-size: 20px;
+}
+
+.error__message{
+  color:red;
 }
 
 
