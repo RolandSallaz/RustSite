@@ -6,6 +6,7 @@
   flex-basis: 100vh;
   position: relative;
   z-index: 0;
+
 }
 
 .main::before {
@@ -18,6 +19,29 @@
   opacity: 0.8;
 }
 
+.page {
+  background-color: rgb(88, 88, 88);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $fontFamily;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url('../images/background.jpg') no-repeat top left;
+  background-size: cover;
+  background-color: rgb(22 17 35);
+  z-index: -2;
+  color: $textColor;
+  text-rendering: optimizeLegibility;
+}
+
+.page_dark {
+  background-image: url("../images/background_night.jpg");
+}
+
 .footer {
   background: $gradient;
   height: 50px;
@@ -25,6 +49,10 @@
   display: flex;
   border-radius: $borderAngle $borderAngle 0 0;
   z-index: 1;
+}
+
+.footer_dark{
+  background: $gradient_night;
 }
 
 .footer__copyright {

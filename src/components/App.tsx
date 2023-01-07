@@ -9,10 +9,11 @@ import Main from "./Main";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {fetchUser, getServers} from "../services/actions/api";
 import ServerListMenu from "./popups/ServerListMenu";
+import {appSlice} from "../services/slices/appSlice";
 
 function App() {
     const dispatch = useAppDispatch();
-    const {user: {loggedIn}, server: {servers}} = useAppSelector((state) => state)
+    const {user: {loggedIn}, server: {servers}, app: {darkMode}} = useAppSelector((state) => state)
     const handleLoginClick = () => {
         window.location.replace(`http://localhost:8000/auth/steam`)
     }
@@ -20,10 +21,14 @@ function App() {
     useEffect(() => {
         dispatch(fetchUser())
         dispatch(getServers());
-    }, [dispatch])
+        const hours = new Date().getHours();
+        if (hours >= 21 || hours <= 9) {
+            dispatch(appSlice.actions.setDarkMode(true))
+        }
+    }, [])
 
     return (
-        <>
+        <div className={`page ${darkMode && 'page_dark'}`}>
             <Header/>
             <Routes>
                 <Route path='/'
@@ -46,10 +51,10 @@ function App() {
                 />
             </Routes>
             {servers.length ? <ServerListMenu/> : null}
-            <footer className="footer">
+            <footer className={`footer ${darkMode && 'footer_dark'}`}>
                 <p className="footer__copyright">&#169; KakahaGames 2023</p>
             </footer>
-        </>
+        </div>
     )
 }
 

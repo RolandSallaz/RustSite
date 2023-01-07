@@ -5,21 +5,22 @@ import {groups} from "../utils/Interfaces";
 
 export default function Header() {
     const {loggedIn, user: {photos, balance, name, group}} = useAppSelector(state => state.user)
+    const {darkMode} = useAppSelector(state => state.app);
     const [showNavigation, setShowNagivation] = useState<boolean>(false);
+    const navigationListClass = darkMode ? 'navagation__list-element navagation__list-element_dark' : 'navagation__list-element'
 
     function toggleShowNavigation(state: boolean) {
         setShowNagivation(state);
     }
 
     return (
-        <header className="header">
+        <header className={`header ${darkMode && 'header_dark'}`}>
             <Link className='header__container' to='/'>
                 <div className="logo logo__place_header"/>
                 <h1 className="header__text">KAKAMBE Rust server</h1>
             </Link>
-
             {loggedIn && (
-                <div className="profile" onMouseEnter={() => toggleShowNavigation(true)}
+                <div className={`profile ${darkMode && 'profile_dark'}`} onMouseEnter={() => toggleShowNavigation(true)}
                      onMouseLeave={() => toggleShowNavigation(false)}>
                     <div className='profile__container'>
                         <div className="profile__info">
@@ -34,10 +35,12 @@ export default function Header() {
                     <nav className={`profile__navigation ${!showNavigation && 'profile__navigation_hidden'}`}>
                         <ul className='navigation__list'>
                             {group === groups.ADMIN && (
-                                <li className='navagation__list-element'><Link className='navigation__link' to='/admin'>Админ
-                                    панель</Link></li>)}
-                            <li className='navagation__list-element'><Link className='navigation__link'
-                                                                           to='/'>Выход</Link></li>
+                                <li className={navigationListClass}>
+                                    <Link className='navigation__link' to='/admin'>Админ панель</Link>
+                                </li>)}
+                            <li className={navigationListClass}>
+                                <Link className='navigation__link' to='/'>Выход</Link>
+                            </li>
                         </ul>
                     </nav>
                 </div>

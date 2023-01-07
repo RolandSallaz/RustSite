@@ -11,10 +11,15 @@
   border-radius: $HeaderBorder;
 }
 
+.header_dark {
+  background: $gradient_night;
+}
+
 .header__container {
   display: flex;
 }
-.header__container:hover{
+
+.header__container:hover {
   opacity: 1;
 }
 
@@ -79,6 +84,10 @@
   box-shadow: $insideBoxShadow;
 }
 
+.profile_dark {
+  background-color: $profileBackgroundColor_night;
+}
+
 .profile__container {
   display: flex;
   justify-content: space-between;
@@ -115,7 +124,8 @@
 .profile__navigation {
   margin: 0;
 }
-.profile__navigation_hidden{
+
+.profile__navigation_hidden {
   display: none;
 }
 
@@ -126,8 +136,8 @@
   margin: 0;
 }
 
-.navigation__link{
-  margin:0;
+.navigation__link {
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +154,12 @@
   box-shadow: $insideBoxShadow;
   list-style: none;
 }
-.navagation__list-element:hover{
+
+.navagation__list-element_dark {
+  background-color: $profileBackgroundColor_night;
+}
+
+.navagation__list-element:hover {
   scale: 1.03;
 }
 

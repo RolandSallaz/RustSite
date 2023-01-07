@@ -1,17 +1,17 @@
 $mainColor: rgb(34, 34, 34);
 $backgroundColor: #e74e49;
 $topDownWidth: 97vw;
-$gradient: linear-gradient(
-                90deg,
-                rgb(235, 67, 67) 18%,
-                rgba(250, 97, 97, 1) 71%,
-                rgba(214, 117, 82, 1) 100%
-);
+$gradient: linear-gradient(90deg, rgb(235, 67, 67) 18%, rgba(250, 97, 97, 1) 71%, rgba(214, 117, 82, 1) 100%);
+$gradient_night: linear-gradient(90deg, rgb(45, 4, 197) 18%, rgb(182 74 74) 71%, rgb(89 30 104) 100%);
 $borderAngle: 30px;
 $HeaderBorder: 0 0 $borderAngle $borderAngle;
 $textShadow: 0 2px 5px black;
 $profileBackgroundColor: rgb(206, 80, 85);
+$profileBackgroundColor_night: rgb(147, 52, 139);
 $insideBoxShadow: inset 0px 0px 3px black;
-$textColor:rgb(221, 221, 221);
+$textColor: rgb(221, 221, 221);
 $boxshadow: 1px 1px 3px black;
 $serverListColor: #312f2f;
+$fontFamily: 'roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
