@@ -1,10 +1,12 @@
 import userReducer from './slices/userSlice'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import popupReducer from "./slices/popupSlice";
+import popupReducer from './slices/popupSlice'
+import serverReducer from './slices/serverSlice'
 
 export const rootReducer = combineReducers({
   user: userReducer,
-  popups:popupReducer,
+  popups: popupReducer,
+  server: serverReducer,
 })
 
 export function setupStore() {

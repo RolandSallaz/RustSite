@@ -7,7 +7,23 @@
 .settings__container{
     margin:0 0 0 20px;
 }
+.settings__server-status{
+    margin:20px 0 0;
+    font-size: 20px;
+
+}
+.settings-list{
+    list-style: none;
+    margin:0;
+    padding: 0;
+}
+.settings-list__item{
+    margin:10px 0 0;
+}
+
 .settings__add-button{
+    margin:0;
+    margin-right: 10px;
     min-height: 30px;
     background-color: #737272;
     color: white;

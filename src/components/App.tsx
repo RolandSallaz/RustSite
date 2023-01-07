@@ -7,18 +7,20 @@ import {ProtectedRoute} from './ProtectedRoute'
 import Auth from "./Auth";
 import Main from "./Main";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {fetchUser} from "../services/actions/api";
+import {fetchUser, getServers} from "../services/actions/api";
+import ServerListMenu from "./popups/ServerListMenu";
 
 function App() {
     const dispatch = useAppDispatch();
-    const {loggedIn, user} = useAppSelector((state) => state.user)
+    const {user: {loggedIn}, server: {servers}} = useAppSelector((state) => state)
     const handleLoginClick = () => {
         window.location.replace(`http://localhost:8000/auth/steam`)
     }
 
     useEffect(() => {
         dispatch(fetchUser())
-    }, [])
+        dispatch(getServers());
+    }, [dispatch])
 
     return (
         <>
@@ -43,6 +45,7 @@ function App() {
                     element={loggedIn ? <Navigate to='/'/> : (<Auth onLogin={handleLoginClick}/>)}
                 />
             </Routes>
+            {servers.length ? <ServerListMenu/> : null}
             <footer className="footer">
                 <p className="footer__copyright">&#169; KakahaGames 2023</p>
             </footer>

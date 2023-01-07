@@ -2,19 +2,14 @@ import React, {useState} from 'react';
 import Popup from "./Popup";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {popupSlice} from "../../services/slices/popupSlice";
-import {groups} from "../../utils/Interfaces";
+import {groups, ServerData} from "../../utils/Interfaces";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {ipRegex} from "../../utils/constants";
 import Loader from "../Loader";
-
-interface IInputData {
-    ip: string,
-    port: number,
-    password: string,
-}
+import {sendServer} from "../../services/actions/api";
 
 const AddServerPopup = () => {
-    const {register, handleSubmit, watch, reset, formState: {errors}} = useForm<IInputData>();
+    const {register, handleSubmit, reset, formState: {errors}} = useForm<ServerData>();
     const {isAddServerPopupOpened, loading} = useAppSelector(state => state.popups)
     const dispatch = useAppDispatch();
     const {loggedIn, user: {group}} = useAppSelector(state => state.user)
@@ -24,9 +19,9 @@ const AddServerPopup = () => {
         dispatch(popupSlice.actions.setAddServerPopupOpened(false))
     }
 
-    const onSubmit: SubmitHandler<IInputData> = data => {
-        console.log(data)
-        dispatch(popupSlice.actions.fetching());
+    const onSubmit: SubmitHandler<ServerData> = data => {
+        //dispatch(popupSlice.actions.fetching());
+        dispatch(sendServer(data))
     };
     const hasError = Boolean(errors.ip || errors.port || errors.password)
     return (
@@ -76,7 +71,6 @@ const AddServerPopup = () => {
                 </button>
                 {loading && (<Loader/>)}
             </form>
-
         </Popup>
     );
 };
