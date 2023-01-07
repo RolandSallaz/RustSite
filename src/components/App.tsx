@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo} from 'react'
+import {useEffect} from 'react'
 import {Navigate, Route, Routes} from 'react-router-dom'
 
 import Admin from './Admin'

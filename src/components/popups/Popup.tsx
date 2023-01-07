@@ -1,6 +1,4 @@
 import React from 'react';
-import {useAppSelector} from "../../hooks/redux";
-import {groups} from "../../utils/Interfaces";
 
 interface props {
     children?: React.ReactNode
