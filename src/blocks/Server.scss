@@ -1,0 +1,10 @@
+.server {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.server__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

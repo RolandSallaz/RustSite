@@ -1,6 +1,7 @@
 import AddServerPopup from "./popups/AddServerPopup";
 import {popupSlice} from "../services/slices/popupSlice";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import EditServerPopup from "./popups/EditServerPopup";
 
 export default function Admin() {
     const dispatch = useAppDispatch()
@@ -10,8 +11,8 @@ export default function Admin() {
         dispatch(popupSlice.actions.setAddServerPopupOpened(true))
     }
 
-    function handleDeleteServerPopupOpen() {
-
+    function handleEditServerPopupOpen() {
+        dispatch(popupSlice.actions.setEditServerPopupOpened(true))
     }
 
     return (
@@ -26,8 +27,8 @@ export default function Admin() {
                                 <button className='settings__add-button' onClick={handleAddServerPopupOpen}>Добавить
                                     сервер
                                 </button>
-                                <button className='settings__add-button' onClick={handleDeleteServerPopupOpen}>Удалить
-                                    сервер
+                                <button className='settings__add-button' onClick={handleEditServerPopupOpen}>
+                                    Изменить сервер
                                 </button>
                             </li>
                             <li className='settings-list__item'>
@@ -38,6 +39,7 @@ export default function Admin() {
                 </div>
             </main>
             <AddServerPopup/>
+            <EditServerPopup/>
         </>
     )
 }

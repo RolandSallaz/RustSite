@@ -8,7 +8,7 @@ import Auth from "./Auth";
 import Main from "./Main";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {fetchUser, getServers} from "../services/actions/api";
-import ServerListMenu from "./popups/ServerListMenu";
+import ServerListMenu from "./ServerListMenu";
 import {appSlice} from "../services/slices/appSlice";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         if (hours >= 21 || hours <= 9) {
             dispatch(appSlice.actions.setDarkMode(true))
         }
-    }, [])
+    }, [dispatch])
 
     return (
         <div className={`page ${darkMode && 'page_dark'}`}>
