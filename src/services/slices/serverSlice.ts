@@ -17,11 +17,14 @@ export const serverSlice = createSlice({
             state.servers = action.payload
         },
         deleteServer(state, action: PayloadAction<IServer>) {
-            state.servers = state.servers.filter(server => server._id !== action.payload._id )
+            state.servers = state.servers.filter(server => server._id !== action.payload._id)
         },
         addServer(state, action: PayloadAction<IServer>) {
             state.servers = [...state.servers, action.payload]
         },
+        rconMessage(state, action: PayloadAction<{ message: string }>) {
+
+        }
     },
 })
 

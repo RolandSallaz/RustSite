@@ -46,3 +46,8 @@ export interface IServer {
     enabled: Boolean,
     _id: string,
 }
+
+export interface IServerCommand {
+    serverId: String,
+    command: String,
+}

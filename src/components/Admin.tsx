@@ -2,6 +2,8 @@ import AddServerPopup from "./popups/AddServerPopup";
 import {popupSlice} from "../services/slices/popupSlice";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import EditServerPopup from "./popups/EditServerPopup";
+import {RxArrowRight} from "react-icons/rx";
+import RconManager from "./RconManager";
 
 export default function Admin() {
     const dispatch = useAppDispatch()
@@ -35,6 +37,7 @@ export default function Admin() {
                                 <button className='settings__add-button'>Редактировать товары</button>
                             </li>
                         </ul>
+                        <RconManager/>
                     </div>
                 </div>
             </main>

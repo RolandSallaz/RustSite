@@ -1,0 +1,21 @@
+.rcon{
+  display: flex;
+  flex-direction: column;
+}
+.rcon__status{
+  background-color: black;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.rcon__form{
+  display: flex;
+}
+.rcon__submit-button{
+  border: none;
+  background: none;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
