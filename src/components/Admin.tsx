@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import EditServerPopup from "./popups/EditServerPopup";
 import {RxArrowRight} from "react-icons/rx";
 import RconManager from "./RconManager";
+import EditProductPopup from "./popups/EditProductPopup";
 
 export default function Admin() {
     const dispatch = useAppDispatch()
@@ -15,6 +16,10 @@ export default function Admin() {
 
     function handleEditServerPopupOpen() {
         dispatch(popupSlice.actions.setEditServerPopupOpened(true))
+    }
+
+    function handleEditProductPopupOpen(){
+        dispatch(popupSlice.actions.setEditProductPopupOpened(true))
     }
 
     return (
@@ -34,7 +39,7 @@ export default function Admin() {
                                 </button>
                             </li>
                             <li className='settings-list__item'>
-                                <button className='settings__add-button'>Редактировать товары</button>
+                                <button className='settings__add-button' onClick={handleEditProductPopupOpen}>Редактировать товары</button>
                             </li>
                         </ul>
                         <RconManager/>
@@ -43,6 +48,7 @@ export default function Admin() {
             </main>
             <AddServerPopup/>
             <EditServerPopup/>
+            <EditProductPopup/>
         </>
     )
 }

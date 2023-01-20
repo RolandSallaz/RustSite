@@ -3,13 +3,15 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 interface PopupState {
     isAddServerPopupOpened: boolean,
     isServerListOpened: boolean,
-    isEditServerPopupOpened: boolean
+    isEditServerPopupOpened: boolean,
+    isEditProductPopupOpened: boolean,
     loading: boolean
 }
 
 const initialState: PopupState = {
     isAddServerPopupOpened: false,
     isServerListOpened: false,
+    isEditProductPopupOpened: false,
     isEditServerPopupOpened: false,
     loading: false,
 }
@@ -26,6 +28,9 @@ export const popupSlice = createSlice({
         },
         setEditServerPopupOpened(state, action: PayloadAction<boolean>) {
             state.isEditServerPopupOpened = action.payload;
+        },
+        setEditProductPopupOpened(state, action: PayloadAction<boolean>) {
+            state.isEditProductPopupOpened = action.payload;
         },
         fetching(state) {
             state.loading = true

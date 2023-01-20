@@ -65,7 +65,7 @@ const AddServerPopup = () => {
                         <span>{errors.password && ('X')}</span>
                     </li>
                 </ul>
-                <button className='popup__submit-button'
+                <button className='popup__button popup__button_submit'
                         disabled={!loggedIn || (group !== groups.ADMIN) || hasError}
                         type="submit">Сохранить
                 </button>
