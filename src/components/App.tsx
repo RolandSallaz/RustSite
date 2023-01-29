@@ -52,7 +52,7 @@ function App() {
             </Routes>
             {servers.length ? <ServerListMenu/> : null}
             <footer className={`footer ${darkMode && 'footer_dark'}`}>
-                <p className="footer__copyright">&#169; KakahaGames 2023</p>
+                <small className="footer__copyright">&#169; KakahaGames 2023</small>
             </footer>
         </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import {IServer} from "../utils/Interfaces";
+import {IServer} from "../interfaces";
 
 interface props {
     serverData: IServer

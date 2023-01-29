@@ -23,7 +23,7 @@ function ServerListMenu() {
     }
 
     return (
-        <div className='ServerListMenu'
+        <aside className='ServerListMenu'
              style={{width: isServerListOpened ? '100vw' : 0}}
              onClick={handleBackgroundClick}>
             <div className='ServerListMenu__content'>
@@ -40,7 +40,7 @@ function ServerListMenu() {
                 </ul>
                 <h2 className='ServerListMenu__heading' onClick={toggleServerListOpen}>Servers</h2>
             </div>
-        </div>
+        </aside>
     );
 }
 

@@ -2,7 +2,7 @@ import axios from '../../axios'
 import {AppDispatch} from '../store'
 import {userSlice} from '../slices/userSlice'
 import {popupSlice} from '../slices/popupSlice'
-import {IServer, IServerCommand, ServerData} from '../../utils/Interfaces'
+import {IProductData, IServer, IServerCommand, IServerData} from '../../interfaces'
 import {useAppDispatch} from '../../hooks/redux'
 import {IServerState, serverSlice} from '../slices/serverSlice'
 import {AxiosResponse} from "axios";
@@ -26,7 +26,19 @@ export const fetchUser = () => {
     }
 }
 
-export const sendServer = (data: ServerData) => {
+export const sendProduct = (data: HTMLFormElement) => {
+    const formData = new FormData(data);
+    return (dispatch: AppDispatch) => {
+        axios
+            .post('/products', formData, {
+                withCredentials: true,  headers: { "Content-Type": "multipart/form-data" },
+            })
+            .then()
+            .catch(console.log)
+    }
+}
+
+export const sendServer = (data: IServerData) => {
     return (dispatch: AppDispatch) => {
         axios
             .post('/servers', data, {withCredentials: true})

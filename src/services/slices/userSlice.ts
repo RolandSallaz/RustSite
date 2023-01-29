@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {groups, IUser} from "../../utils/Interfaces";
+import {IUser} from "../../interfaces";
+import {groups} from "../../utils/enums";
 
 interface LoginState {
     loggedIn: boolean

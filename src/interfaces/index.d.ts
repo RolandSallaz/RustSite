@@ -1,8 +1,3 @@
-export enum groups {
-    USER = 'user',
-    ADMIN = 'admin'
-}
-
 export interface IUser {
     balance: number
     group: string
@@ -11,10 +6,17 @@ export interface IUser {
     steamId: number
 }
 
-export interface ServerData {
+export interface IServerData {
     ip: string,
     port: number,
     password: string,
+}
+
+export interface IProductData {
+    title: string,
+    price: number,
+    image: FileList,
+    rconCommand: string,
 }
 
 export interface IServerInfo {

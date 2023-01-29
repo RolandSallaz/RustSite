@@ -2,32 +2,33 @@ import React, {useState} from 'react';
 import Popup from "./Popup";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {popupSlice} from "../../services/slices/popupSlice";
-import {groups, ServerData} from "../../utils/Interfaces";
+import {IServerData} from "../../interfaces";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {ipRegex} from "../../utils/constants";
 import Loader from "../Loader";
 import {sendServer} from "../../services/actions/api";
+import {groups} from "../../utils/enums";
 
 const AddServerPopup = () => {
-    const {register, handleSubmit, reset, formState: {errors}} = useForm<ServerData>();
+    const {register, handleSubmit, reset, formState: {errors, isValid, isDirty}} = useForm<IServerData>();
     const {isAddServerPopupOpened, loading} = useAppSelector(state => state.popups)
     const dispatch = useAppDispatch();
-    const {loggedIn, user: {group}} = useAppSelector(state => state.user)
+    const {user} = useAppSelector(state => state.user)
+    const hasError = user.group !== groups.ADMIN || isDirty || !isValid
 
     function handleClosePopup() {
         reset();
         dispatch(popupSlice.actions.setAddServerPopupOpened(false))
     }
 
-    const onSubmit: SubmitHandler<ServerData> = data => {
+    const onSubmit: SubmitHandler<IServerData> = data => {
         //dispatch(popupSlice.actions.fetching());
         dispatch(sendServer(data))
     };
-    const hasError = Boolean(errors.ip || errors.port || errors.password)
     return (
         <Popup isOpen={isAddServerPopupOpened} onClose={handleClosePopup}>
             <form className='popup__form' onSubmit={handleSubmit(onSubmit)}>
-                <h2 className='popup__header'>Добавить сервер</h2>
+                <h2 className='popup__heading'>Добавить сервер</h2>
                 <ul className='input-list'>
                     <li className='input-list__item'>
                         <span>Ip</span>
@@ -46,6 +47,7 @@ const AddServerPopup = () => {
                                placeholder='28016'
                                defaultValue='28016'
                                pattern="\d*"
+                               type={"number"}
                                {...register('port', {
                                    validate: (value) => typeof value == 'number',
                                    valueAsNumber: true,
@@ -66,7 +68,7 @@ const AddServerPopup = () => {
                     </li>
                 </ul>
                 <button className='popup__button popup__button_submit'
-                        disabled={!loggedIn || (group !== groups.ADMIN) || hasError}
+                        disabled={hasError}
                         type="submit">Сохранить
                 </button>
                 {loading && (<Loader/>)}

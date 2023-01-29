@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {popupSlice} from "../../services/slices/popupSlice";
 import Server from "../Server";
 import {BiEdit, BiTrash} from "react-icons/bi";
-import {IServer} from "../../utils/Interfaces";
+import {IServer} from "../../interfaces";
 import {deleteServer} from "../../services/actions/api";
 
 function EditServerPopup() {

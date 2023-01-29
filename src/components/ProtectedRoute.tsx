@@ -1,8 +1,8 @@
 import {FC} from 'react'
 import {Navigate} from 'react-router-dom'
 import {useAppSelector} from "../hooks/redux";
-import {groups} from "../utils/Interfaces";
 import {FailPage} from "./FailPage";
+import {groups} from "../utils/enums";
 
 interface IRouteProps {
     adminRequire?: boolean

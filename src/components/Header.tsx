@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
 import {useAppSelector} from "../hooks/redux";
-import {groups} from "../utils/Interfaces";
+import {groups} from "../utils/enums";
 
 export default function Header() {
     const {loggedIn, user: {photos, balance, name, group}} = useAppSelector(state => state.user)
