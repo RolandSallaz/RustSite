@@ -13,9 +13,11 @@ export interface IServerData {
 }
 
 export interface IProductData {
+    _id?: string,
     title: string,
     price: number,
-    image: FileList,
+    image?: FileList,
+    imageLink: String,
     rconCommand: string,
 }
 

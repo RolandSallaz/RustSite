@@ -25,8 +25,9 @@ export default function Admin() {
     return (
         <>
             <main className="main">
-                <h2>Admin panel</h2>
+
                 <div className="settings">
+                    <h2>Admin panel</h2>
                     <div className='settings__container'>
                         <p className='settings__server-status'>{`Подключенных серверов: ${servers.length}`}</p>
                         <ul className='settings-list'>

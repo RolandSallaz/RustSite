@@ -6,6 +6,7 @@ import {IProductData, IServer, IServerCommand, IServerData} from '../../interfac
 import {useAppDispatch} from '../../hooks/redux'
 import {IServerState, serverSlice} from '../slices/serverSlice'
 import {AxiosResponse} from "axios";
+import {productSlice} from "../slices/productSlice";
 
 interface IServerResponse {
     data: {
@@ -31,7 +32,7 @@ export const sendProduct = (data: HTMLFormElement) => {
     return (dispatch: AppDispatch) => {
         axios
             .post('/products', formData, {
-                withCredentials: true,  headers: { "Content-Type": "multipart/form-data" },
+                withCredentials: true, headers: {"Content-Type": "multipart/form-data"},
             })
             .then()
             .catch(console.log)
@@ -78,6 +79,17 @@ export const sendRconCommand = ({serverId, command}: IServerCommand) => {
             .post(`/servers/${serverId}`, {command}, {withCredentials: true})
             .then((res) => {
                 console.log(res)
+            })
+            .catch(console.log)
+    }
+}
+
+export const getProducts = () => {
+    return (dispatch: AppDispatch) => {
+        axios
+            .get<IProductData[]>('/products', {withCredentials: true})
+            .then((res) => {
+                dispatch(productSlice.actions.getProducts(res.data))
             })
             .catch(console.log)
     }

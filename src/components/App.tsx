@@ -7,7 +7,7 @@ import {ProtectedRoute} from './ProtectedRoute'
 import Auth from "./Auth";
 import Main from "./Main";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {fetchUser, getServers} from "../services/actions/api";
+import {fetchUser, getProducts, getServers} from "../services/actions/api";
 import ServerListMenu from "./ServerListMenu";
 import {appSlice} from "../services/slices/appSlice";
 
@@ -21,6 +21,7 @@ function App() {
     useEffect(() => {
         dispatch(fetchUser())
         dispatch(getServers());
+        dispatch(getProducts())
         const hours = new Date().getHours();
         if (hours >= 21 || hours <= 9) {
             dispatch(appSlice.actions.setDarkMode(true))
