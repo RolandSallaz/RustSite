@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <main className="main">
             <div className='products'>
-                <div className='products-filter'>
+                <div className='products__filter'>
                     <button>Фильтр1</button>
                     <button>Фильтр2</button>
                     <input/>

@@ -46,7 +46,7 @@ export interface IServer {
     ip: String,
     port: Number,
     password: String,
-    info: IServerInfo,
+    info?: IServerInfo,
     enabled: Boolean,
     _id: string,
 }

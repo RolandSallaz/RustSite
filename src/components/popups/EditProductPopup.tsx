@@ -7,6 +7,7 @@ import {set, SubmitHandler, useForm} from "react-hook-form";
 import {IProductData, IServerData} from "../../interfaces";
 import {sendProduct, sendServer} from "../../services/actions/api";
 import {groups} from "../../utils/enums";
+import {BiEdit, BiTrash} from "react-icons/bi";
 
 function EditProductPopup() {
     const [isAddProductFormOpen, setIsAddProductFormOpen] = useState<Boolean>(false)
@@ -16,6 +17,7 @@ function EditProductPopup() {
     const {user} = useAppSelector(state => state.user)
     const hasError = user.group !== groups.ADMIN || !isValid
     const dispatch = useAppDispatch();
+    const {products} = useAppSelector(state => state.product)
 
     function handleClosePopup() {
         dispatch(popupSlice.actions.setEditProductPopupOpened(false))
@@ -37,7 +39,7 @@ function EditProductPopup() {
                         onClick={handleToggleProductForm}>
                         {isAddProductFormOpen ? <FaArrowLeft/> : <FaRegPlusSquare/>}
                     </button>
-                    <p>Количество товаров: 023123</p>
+                    <p>{`Количество товаров: ${products.length}`}</p>
                     {!isAddProductFormOpen && (<input className='popup__input' placeholder='Поиск по товарам'/>)}
                 </div>
 
@@ -57,6 +59,18 @@ function EditProductPopup() {
                         </button>
                     </form>) :
                     (<ul className='popup-list'>
+                        {products.map(item => (
+                            <li className='popup-list__item'>
+                                <div className='popup-list__container'>
+                                    <p>{`Название: ${item.title} Цена: ${item.price} Rcon команда: ${item.rconCommand}`}</p>
+                                    <img className='popup-list__image' src={`${process.env.REACT_APP_API_URL}/${item.imageLink}`}/>
+                                </div>
+                                <div className='popup-list__buttons-container'>
+                                    <button className='popup-list__button'><BiEdit/></button>
+                                    <button className='popup-list__button'><BiTrash/></button>
+                                </div>
+                            </li>
+                        ))}
                     </ul>)
                 }
 

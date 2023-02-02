@@ -22,7 +22,7 @@ function RconManager() {
 
                 <select {...register('serverId')}>
                     {servers.map((server) => (
-                        <option key={server._id} value={server._id}>{server.info.Hostname}</option>))}
+                        <option key={server._id} value={server._id}>{server.info?.Hostname}</option>))}
                 </select>
                 <select {
                             ...register('commandType')
