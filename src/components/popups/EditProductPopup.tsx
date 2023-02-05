@@ -66,7 +66,7 @@ function EditProductPopup() {
                                     <img className='popup-list__image' src={`${process.env.REACT_APP_API_URL}/${item.imageLink}`}/>
                                 </div>
                                 <div className='popup-list__buttons-container'>
-                                    <button className='popup-list__button'><BiEdit/></button>
+                                    <button className='popup-list__button' onClick={handleToggleProductForm}><BiEdit/></button>
                                     <button className='popup-list__button'><BiTrash/></button>
                                 </div>
                             </li>
