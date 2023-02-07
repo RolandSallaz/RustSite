@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {FC, ReactNode} from 'react';
 
 interface props {
-    children?: React.ReactNode
     isOpen: boolean,
     onClose: () => void,
+    children: ReactNode
 }
 
-export default function Popup({children, isOpen, onClose}: props) {
+const Popup: FC<props> = ({isOpen, onClose, children}) => {
     function closeByOverlay(e: React.MouseEvent<HTMLDivElement>) {
         const {target, currentTarget} = e;
         if (target !== currentTarget) return;
@@ -19,3 +19,4 @@ export default function Popup({children, isOpen, onClose}: props) {
         </div>
     );
 };
+export default Popup

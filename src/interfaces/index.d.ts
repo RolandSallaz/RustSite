@@ -15,7 +15,9 @@ export interface IServerData {
 export interface IProductData {
     _id?: string,
     title: string,
-    price: number,
+    price: {
+        $numberDecimal: number
+    },
     image?: FileList,
     imageLink: String,
     rconCommand: string,

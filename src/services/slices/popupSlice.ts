@@ -1,10 +1,12 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {IProductData} from "../../interfaces";
 
 interface PopupState {
     isAddServerPopupOpened: boolean,
     isServerListOpened: boolean,
     isEditServerPopupOpened: boolean,
     isEditProductPopupOpened: boolean,
+    buyProductPopup: IProductData | null,
     loading: boolean
 }
 
@@ -13,6 +15,7 @@ const initialState: PopupState = {
     isServerListOpened: false,
     isEditProductPopupOpened: false,
     isEditServerPopupOpened: false,
+    buyProductPopup: null,
     loading: false,
 }
 
@@ -31,6 +34,9 @@ export const popupSlice = createSlice({
         },
         setEditProductPopupOpened(state, action: PayloadAction<boolean>) {
             state.isEditProductPopupOpened = action.payload;
+        },
+        setBuyProductPopupData(state, action: PayloadAction<IProductData | null>) {
+            state.buyProductPopup = action.payload;
         },
         fetching(state) {
             state.loading = true
