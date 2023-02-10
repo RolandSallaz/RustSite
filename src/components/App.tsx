@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {Navigate, Route, Routes} from 'react-router-dom'
 
 import Admin from './Admin'
@@ -10,6 +10,7 @@ import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {fetchUser, getProducts, getServers} from "../services/actions/api";
 import ServerListMenu from "./ServerListMenu";
 import {appSlice} from "../services/slices/appSlice";
+import BuyPopup from "./popups/BuyPopup";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -55,6 +56,7 @@ function App() {
             <footer className={`footer ${darkMode && 'footer_dark'}`}>
                 <small className="footer__copyright">&#169; KakahaGames 2023</small>
             </footer>
+            <BuyPopup/>
         </div>
     )
 }

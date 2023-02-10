@@ -41,11 +41,16 @@ export default function BuyPopup() {
     }, [watch()])
     return (
         <Popup isOpen={Boolean(buyProductPopup)} onClose={handleClosePopup}>
-            <form className='popup__form'>
-                <h2 className='popup__heading'>{buyProductPopup?.title}</h2>
-                <p>{`Цена: ${currentPrice} рублей`}</p>
-                <input type='number' {...register('count', {min: 1})}/>
-                <button>'Купить'</button>
-            </form>
+            <div className='popup__container popup__container_type_buy-product'>
+                <form className='popup__form'>
+                    <h2 className='popup__heading'>{buyProductPopup?.title}</h2>
+                    <p>{`Цена: ${currentPrice} рублей`}</p>
+                    <div className='popup__'>
+                        <input type='number' {...register('count', {min: 1})}/>
+                        <img style={{width:'100px',height:'100px'}} src={`${process.env.REACT_APP_API_URL}/${buyProductPopup?.imageLink}`}/>
+                    </div>
+                    <button>'Купить'</button>
+                </form>
+            </div>
         </Popup>)
 };

@@ -19,7 +19,7 @@ export interface IProductData {
         $numberDecimal: number
     },
     image?: FileList,
-    imageLink: String,
+    imageLink: string,
     rconCommand: string,
 }
 
