@@ -29,12 +29,38 @@
     grid-gap: 20px;
     align-self: center;
   }
+
+  &__button {
+    grid-area: submit;
+  }
+
+  &__form_type_buy-product {
+    grid-template-columns: repeat(2, min-content);
+    grid-gap: 0px 10px;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+            "heading heading"
+            "price price"
+            "input image"
+            "submit submit"
+  }
+
+  &__price {
+    grid-area: price;
+  }
+
+  &__image {
+
+    grid-area: image;
+    justify-self: flex-start;
+  }
 }
 
 
 .popup__container {
   cursor: default;
-  height: 60vh;
+  padding: 40px;
   background-color: #3f3d3d;
   border-radius: 3px;
   display: flex;
@@ -42,6 +68,7 @@
 }
 
 .popup__heading {
+  grid-area: heading;
   margin: 0;
   text-shadow: $textShadow;
 }
@@ -58,6 +85,12 @@
 
 .popup__button_submit {
   height: 40px;
+  margin-top: 20px;
+  background-color: green;
+
+  &:disabled {
+    background: black;
+  }
 }
 
 .popup__button_add {
@@ -86,15 +119,18 @@
     align-items: center;
     box-shadow: 3px 3px 5px black;
   }
-  &__container{
-    margin-left:10px;
+
+  &__container {
+    margin-left: 10px;
     display: flex;
     height: 100%;
   }
-  &__buttons-container{
+
+  &__buttons-container {
     display: flex;
     margin: 0 0 0 auto;
   }
+
   &__button {
     cursor: pointer;
     border: none;
@@ -106,7 +142,8 @@
     display: flex;
     align-items: center;
   }
-  &__image{
+
+  &__image {
     height: 100%;
     margin-left: 10px;
   }
@@ -121,6 +158,7 @@
 }
 
 .popup__submit-button:disabled {
+
   cursor: default;
   text-shadow: none;
   cursor: default;

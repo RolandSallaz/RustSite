@@ -1,0 +1,28 @@
+
+.input{
+  background: none;
+  font-size: 20px;
+  color:white;
+  &_type_number{
+    display: flex;
+    width: min-content;
+    height: 60px;
+    flex-direction: column;
+    box-shadow: none;
+  }
+  &__element{
+    background: none;
+    color:white;
+    font-size: 20px;
+
+  }
+}
+
+.input__button{
+  min-height: 20px;
+  width: 100%;
+  color:white;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px black;
+
+}
