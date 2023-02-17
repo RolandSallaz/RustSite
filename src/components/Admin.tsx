@@ -31,7 +31,7 @@ export default function Admin() {
                     <div className='settings__container'>
                         <p className='settings__server-status'>{`Подключенных серверов: ${servers.length}`}</p>
                         <ul className='settings-list'>
-                            <li className='settings-list__item'>
+                            <li className='settings-list__item' >
                                 <button className='settings__add-button' onClick={handleAddServerPopupOpen}>Добавить
                                     сервер
                                 </button>
