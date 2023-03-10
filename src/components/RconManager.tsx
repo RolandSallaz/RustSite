@@ -5,13 +5,14 @@ import {SubmitHandler, useForm, Controller} from "react-hook-form";
 import {IServer, IServerCommand} from "../interfaces";
 import {sendRconCommand} from "../services/actions/api";
 import Select, {StylesConfig} from 'react-select'
+import AsyncSelect from 'react-select/async'
 
 interface ISelect {
     value: String,
     label: String
 }
 
-interface ISelectValues {
+export interface ISelectValues {
     [key: string]: ISelect
 }
 
@@ -33,7 +34,6 @@ function RconManager() {
 
     const [enabledServers, setEnabledServers] = useState<IServer[]>([])
     const [selectValues, setSelectValues] = useState<ISelectValues>({server: {value: '', label: ''}});
-
     const selectStyles: StylesConfig = {
         control: (baseStyles, state) => ({
             ...baseStyles,
@@ -47,13 +47,25 @@ function RconManager() {
     }
 
     const onSubmit: SubmitHandler<IServerCommand> = data => {
-        dispatch(sendRconCommand(data))
+        sendRconCommand({
+            serverId: selectValues.server.value,
+            command: data.command
+        } as IServerCommand)
+            .then((console.log))
     };
 
     const commandOptions: ISelect[] = [
         {value: CommandTypeValues.rconCommand, label: 'Rcon команда'},
         {value: CommandTypeValues.reloadPlugin, label: 'Перезагрузить плагин'}
     ]
+
+    function loadPluginOptions(
+        inputValue: string,
+        callback: (options: any) => void //todo
+    ) {
+        sendRconCommand({serverId: selectValues.server.value, command: 'plugins'})
+            .then(callback)
+    };
 
     useEffect(() => {
         setSelectValues(prev => ({...prev, [SelectTypes.command]: commandOptions[0]}))
@@ -102,7 +114,7 @@ function RconManager() {
                                           required: 'Обязательное поле',
                                       })}
                             />)
-                            : (<Select onChange={console.log}/>)
+                            : (<AsyncSelect cacheOptions loadOptions={loadPluginOptions} defaultOptions styles={selectStyles} />)
 
                     }
                     <button className='rcon__submit-button' type='submit'><RxArrowRight/></button>

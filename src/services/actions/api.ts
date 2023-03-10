@@ -7,12 +7,20 @@ import {useAppDispatch} from '../../hooks/redux'
 import {IServerState, serverSlice} from '../slices/serverSlice'
 import {AxiosResponse} from "axios";
 import {productSlice} from "../slices/productSlice";
+import {ISelectValues} from "../../components/RconManager";
 
 interface IServerResponse {
     data: {
         message: string,
         server: IServer,
     }
+}
+
+interface IRconCommandResponse {
+    Indentifier: number,
+    Stacktrace: string,
+    Type: string,
+    content: string
 }
 
 export const fetchUser = () => {
@@ -74,14 +82,29 @@ export const deleteServer = (id: string) => {
 }
 
 export const sendRconCommand = ({serverId, command}: IServerCommand) => {
-    return (dispatch: AppDispatch) => {
-        axios
+
+        return axios
             .post(`/servers/${serverId}`, {command}, {withCredentials: true})
-            .then((res) => {
-                console.log(res)
+            .then((res: AxiosResponse<IRconCommandResponse>) => {
+                if (command == 'plugins') {
+                    const removeNumbersRegex = / \d\d /;
+                    const selectPlugin = /.*-/;
+                    const data = res.data.content.replace("Listing 40 plugins:", "").split('\n ').slice(1)
+                    return data.map((item) => {
+                        const value = item.match(/- .*/g)
+                        const name = item.match(/".*"/g)
+                        return {
+                            value: value ? value[0].replace('- ', '').replace('.cs', '') : '',
+                            label: name ? name[0].replace(/"/g, '') : ''
+                        }
+
+                    })
+                } else {
+                    console.log(res)
+                }
             })
             .catch(console.log)
-    }
+
 }
 
 export const getProducts = () => {
